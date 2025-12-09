@@ -1,283 +1,133 @@
-🚀 Network Automation Toolkit
+# Network Automation Projects
 
-A Complete Collection of Real-World Network Automation Scripts
+This repository contains a collection of network automation scripts written in Python.
+All projects are categorized as follows:
 
-Automating Cisco, MikroTik, PRTG, Selenium, Docker Labs, and Infrastructure Tasks
-
-
----
-
-📌 Introduction
-
-This repository is a complete toolkit of real-world, production-grade Network Automation scripts, created and tested across multiple devices and environments including:
-
-Cisco IOS / IOS-XE
-
-Cisco Nexus
-
-MikroTik RouterOS
-
-PRTG Monitoring System
-
-Selenium Web Automation
-
-Excel & CSV Automation
-
-Docker-based virtual network labs
-
-SSH automation with Netmiko / Paramiko
-
-Playwright for Web UI automation
-
-
-All scripts are modular, tested, and ready for real-world enterprise use.
-
+1. [Cisco Automation](#cisco-automation)
+2. [MikroTik Automation](#mikrotik-automation)
+3. [PRTG Monitoring Automation](#prtg-monitoring-automation)
+4. [Web Automation (Selenium & Playwright)](#web-automation)
+5. [File & Excel Automation](#file-excel-automation)
+6. [Email Automation](#email-automation)
 
 ---
 
-📦 Features
+## 📦 Installation
 
-✅ Cisco Automation
-
-Backup configurations (IOS, IOS-XE, Nexus)
-
-Logout active Cisco users
-
-ASR 1000 Power Redundancy Monitoring
-
-Multi-device parallel SSH execution
-
-Running CLI commands from file lists
-
-
-✅ MikroTik Automation
-
-Automated login using Mikrotik_Connector
-
-Backup generation + file download
-
-Firewall address-list automation
-
-Parsing invalid IP formats (/32, ranges, etc.)
-
-
-✅ PRTG Monitoring Automation
-
-Fetch sensor data using PRTG REST API
-
-CSV export for Receive/Transmit speeds
-
-Full HTML Report Generator
-
-Auto screenshot collector (PRTG graphs)
-
-Daily monitoring automation system
-
-
-✅ Web Automation (Selenium + Playwright)
-
-Automated login to dashboard systems
-
-Full-page screenshot capture
-
-File download automation without renaming
-
-Handling pop-ups, checkboxes, and collapse sections
-
-Running automation inside WSL (Ubuntu 22.04)
-
-
-✅ Excel / CSV Automation
-
-Convert .xls → .xlsx using openpyxl
-
-Generate formal Excel tables
-
-Insert Excel tables into PowerPoint slides
-
-Dynamic file attachment automation in email scripts
-
-
-✅ Docker Infrastructure Labs
-
-Full Linux container with SSH, SNMP, Python
-
-Simulated production-like monitoring lab
-
-Testing SNMP polling and Python automation inside Docker
-
-
-
----
-
-🛠 Requirements
-
-Python 3.10+
-
-Install required dependencies:
-
-pip install -r requirements.txt
-
-Included Libraries:
-
-netmiko
-paramiko
-requests
-openpyxl
-python-pptx
-selenium
-playwright
-beautifulsoup4
-pandas
-matplotlib
-mikrotik-connector
-
-Install Playwright Browsers:
-
+```bash
+pip install netmiko openpyxl requests mikrotik-connector selenium playwright
 playwright install
+```
 
-Install Selenium WebDriver (Firefox recommended):
-
-sudo apt install firefox-geckodriver
-
+> Note: Selenium requires Firefox browser and geckodriver installed.
 
 ---
 
-📂 Project Structure
+## Cisco Automation
 
+**Folder path:** `cisco/`
+
+| File                     | Description                       |
+| ------------------------ | --------------------------------- |
+| `cisco_backup_single.py` | Backup a single Cisco device      |
+| `CiscoBackup_v1.py`      | Multi-device backup (version 1)   |
+| `CiscoBackup_v2.py`      | Multi-device backup (version 2)   |
+| `CiscoBackup_v3.py`      | Multi-device backup (version 3)   |
+| `nexus_backup.py`        | Backup Nexus switches             |
+| `cisco_logout_users.py`  | Logout active users               |
+| `asr_power_monitor.py`   | Monitor ASR 1000 power redundancy |
+
+**Example execution:**
+
+```bash
+python cisco/cisco_backup_single.py
+```
+
+---
+
+## MikroTik Automation
+
+**Folder path:** `mikrotik/`
+
+| File                      | Description                 |
+| ------------------------- | --------------------------- |
+| `mikrotik_backup.py`      | Full MikroTik backup        |
+| `mikrotik_login.py`       | Test connection to MikroTik |
+| `mikrotik_addresslist.py` | Add IPs to Address List     |
+
+---
+
+## PRTG Monitoring Automation
+
+**Folder path:** `prtg/`
+
+| File                       | Description                      |
+| -------------------------- | -------------------------------- |
+| `prtg_html_report.py`      | Generate HTML report from PRTG   |
+| `prtg_export_csv.py`       | Export CSV report from PRTG      |
+| `prtg_graph_screenshot.py` | Take graph screenshots from PRTG |
+
+---
+
+## Web Automation (Selenium & Playwright)
+
+**Folder path:** `web_automation/`
+
+| File                              | Description                             |
+| --------------------------------- | --------------------------------------- |
+| `selenium_fullpage_screenshot.py` | Full-page screenshot using Selenium     |
+| `selenium_login.py`               | Website login automation using Selenium |
+| `playwright_automation.py`        | Screenshot using Playwright             |
+
+---
+
+## File & Excel Automation
+
+**Folder path:** `file_automation/`
+
+| File                      | Description                            |
+| ------------------------- | -------------------------------------- |
+| `excel_read_write.py`     | Read/Write Excel files using openpyxl  |
+| `text_file_automation.py` | Read/Write text files                  |
+| `aggregate_ips.py`        | Aggregate IPs from multiple text files |
+
+---
+
+## Email Automation
+
+**Folder path:** `email_automation/`
+
+| File                             | Description                  |
+| -------------------------------- | ---------------------------- |
+| `send_email_smtp.py`             | Send simple emails via SMTP  |
+| `send_email_with_attachments.py` | Send emails with attachments |
+
+---
+
+## 👁 Folder Structure
+
+```
 network-automation/
-│
 ├── cisco/
-│   ├── cisco_backup_nexus.py
-│   ├── cisco_enable_logout.py
-│   ├── asr_power_redundancy.py
-│   └── run_commands_from_file.py
-│
 ├── mikrotik/
-│   ├── mikrotik_backup.py
-│   ├── mikrotik_login.py
-│   └── mikrotik_addresslist.py
-│
 ├── prtg/
-│   ├── prtg_api_fetch.py
-│   ├── prtg_html_report.py
-│   ├── prtg_graph_screenshot.py
-│   └── prtg_daily_monitor.py
-│
 ├── web_automation/
-│   ├── selenium_fullpage_screenshot.py
-│   ├── selenium_login.py
-│   ├── playwright_interactions.py
-│   └── file_download_automation.py
-│
-├── excel_tools/
-│   ├── xls_to_xlsx.py
-│   ├── insert_table_to_ppt.py
-│   └── csv_ip_validator.py
-│
-└── docker_lab/
-    ├── Dockerfile
-    ├── docker-compose.yml
-    └── README.md
-
+├── file_automation/
+└── email_automation/
+```
 
 ---
 
-🚀 Usage Examples
+## 🔧 Important Notes
 
-🔹 Cisco Backup (Nexus, IOS, IOS-XE)
-
-python cisco/cisco_backup_nexus.py
-
-Backs up all devices listed in:
-
-ssh_con/CiscoBackupIP.txt
-
+* Update **IP addresses, usernames, and passwords** in each script before execution.
+* Clone the repository locally to execute scripts with correct folder paths.
+* For Web Automation, ensure the required browser and driver are installed.
+* For PRTG and MikroTik, API and SSH access are required.
 
 ---
 
-🔹 MikroTik Address List Automation
+## 💡 Recommendation
 
-python mikrotik/mikrotik_addresslist.py
-
-Automatically adds thousands of IPs from a text file.
-
-
----
-
-🔹 PRTG HTML Report Generation
-
-python prtg/prtg_html_report.py
-
-Output example:
-
-reports/prtg_report_2025_01_10.html
-
-
----
-
-🔹 Selenium Full Page Screenshot
-
-python web_automation/selenium_fullpage_screenshot.py
-
-
----
-
-🔹 Convert .xls to .xlsx
-
-python excel_tools/xls_to_xlsx.py
-
-
----
-
-🧪 Docker Lab Setup
-
-Build image:
-
-docker build -t network-lab .
-
-Run environment:
-
-docker-compose up -d
-
-Includes:
-
-Ubuntu container
-
-SSH server
-
-SNMP server
-
-Python scripts
-
-Allows testing polling, automation, and monitoring in isolation
-
-
-
----
-
-📧 Email Automation with Attachments
-
-Supports dynamic:
-
-PBX files
-
-PNG graphs
-
-Multi-file attachments
-
-
-
----
-
-🔍 Future Enhancements
-
-Ansible playbooks
-
-NetBox automation
-
-CI/CD pipeline for testing scripts
-
-FastAPI dashboard for automation jobs
-
-
+This repository can serve as a **complete reference for network automation projects**.
+Each script can be run individually or extended for further automation tasks.
